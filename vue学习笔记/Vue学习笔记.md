@@ -4767,7 +4767,7 @@ Axios是一个开源的可以用在浏览器端和Node JS的异步通信框架�
 - 客户端支持防御XSRF(跨站请求伪造)
 
 GitHub：[https://github.com/axios/axios](https://)
-  中文文档：[http://www.axios-js.com/](https://)
+中文文档：[http://www.axios-js.com/](https://)
 
 ## 7.2、为什么要使用Axios
 
