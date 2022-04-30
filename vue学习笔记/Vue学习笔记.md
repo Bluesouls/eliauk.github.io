@@ -1,4 +1,4 @@
-# 一、前端核心分析
+一、前端核心分析
 
 ## 1.1、概述
 
@@ -222,7 +222,7 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
 为了降低开发的复杂度， 以后端为出发点， 比如：Struts、Spring MVC等框架的使用， 就是后端的MVC时代；
 以`SpringMVC`流程为例：
 
-![f62afe1e9e6d4ae9dec1502d62e26992.png](Vue学习笔记.assets/f62afe1e9e6d4ae9dec1502d62e26992.png)
+![f62afe1e9e6d4ae9dec1502d62e26992](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301324384.png)
 
 - 发起请求到前端控制器(Dispatcher Servlet)
 
@@ -266,12 +266,12 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
 
 时间回到2005年A OAX(Asynchronous JavaScript And XML， 异步JavaScript和XML，老技术新用法)被正式提出并开始使用CDN作为静态资源存储， 于是出现了JavaScript王者归来(在这之前JS都是用来在网页上贴狗皮膏药广告的) 的SPA(Single Page Application) 单页面应用时代。
 
-![8c4d810c04015321587b75c8df0b3a8c.png](Vue学习笔记.assets/8c4d810c04015321587b75c8df0b3a8c.png)
+![8c4d810c04015321587b75c8df0b3a8c](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301324256.png)
 
 **优点**
 
 这种模式下， **前后端的分工非常清晰， 前后端的关键协作点是AJAX接口。**看起来是如此美妙， 但回过头来看看的话， 这与JSP时代区别不大。复杂度从服务端的JSP里移到了浏览器的JavaScript，浏览器端变得很复杂。类似Spring MVC， **这个时代开始出现浏览器端的分层架构：**
-![efbadc70182d0cdd55bd4d9190dc922a.png](Vue学习笔记.assets/efbadc70182d0cdd55bd4d9190dc922a.png)
+![efbadc70182d0cdd55bd4d9190dc922a.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301324221.png)
 缺点
 
 - 前后端接口的约定：如果后端的接口一塌糊涂，如果后端的业务模型不够稳定，那么前端开发会很痛苦；不少团队也有类似尝试，通过接口规则、接口平台等方式来做。有了和后端一起沉淀的接口规则，还可以用来模拟数据，使得前后端可以在约定接口后实现高效并行开发。
@@ -285,7 +285,7 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
 - MVP(异步通信为主) ：Model、View、Presenter
 - MVVM(异步通信为主)：Model、View、View Model为了降低前端开发复杂度，涌现了大量的前端框架，比如：Angular JS、React、Vue.js、Ember JS等， 这些框架总的原则是先按类型分层， 比如Templates、Controllers、Models， 然后再在层内做切分，如下图：
 
-![a8f5b31e56947212e43f5f263820f6d6.png](Vue学习笔记.assets/a8f5b31e56947212e43f5f263820f6d6.png)
+![a8f5b31e56947212e43f5f263820f6d6.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301324782.png)
 
 **优点**
 
@@ -303,7 +303,7 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
 
 前端为主的MV*模式解决了很多很多问题， 但如上所述， 依旧存在不少不足之处。随着Node JS的兴起， JavaScript开始有能力运行在服务端。这意味着可以有一种新的研发模式：
 
-![2cc10d1766d761ef22b42a0a429ac244.png](Vue学习笔记.assets/2cc10d1766d761ef22b42a0a429ac244.png)
+![2cc10d1766d761ef22b42a0a429ac244.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301325456.png)
 
 在这种研发模式下，前后端的职责很清晰。对前端来说，两个UI层各司其职：
 
@@ -368,13 +368,13 @@ npm install webpack@5.42.1 webpack-cli@4.7.2 -D
 
   例：npm i jquery -S
 
-  ![image-20220403123330033](Vue学习笔记.assets/image-20220403123330033.png)
+  ![image-20220403123330033](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301325422.png)
 
 - 仅开发需要用到的包，在命令行用 -D(--save -dev) 存到 package.json 中的 devDependencies 中使用
 
   例：npm i webpack@5.42.1 webpack-cli@4.7.2 -D
 
-  ![image-20220403123458534](Vue学习笔记.assets/image-20220403123458534.png)
+  ![image-20220403123458534](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301325668.png)
 
 ## 4.4、在项目中配置 webpack
 
@@ -401,7 +401,7 @@ module.exports = {
 
 ③ 在终端中运行 npm run dev 命令，启动 webpack 进行项目的打包构建
 
-![image-20220408165518297](Vue学习笔记.assets/image-20220408165518297-1650110942789.png)
+![image-20220408165518297](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301325055.png)
 
 此时在目录中生成了一个 dist 文件夹并生成了一个 main.js 的文件，main.js 文件 是根据 index.js 文件自动生成的，在 html 中导入新生成的 main.js 文件，就可以解决兼容性的问题
 
@@ -488,11 +488,11 @@ webpack-dev-server 可以让 webpack **监听项目源代码的变化**，从而
 
   ③ 在浏览器中访问 http://localhost:8080 地址，查看自动打包效果
 
-  ![image-20220403170352958](Vue学习笔记.assets/image-20220403170352958.png)
+  ![image-20220403170352958](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301325246.png)
 
 注意：webpack-dev-server 会启动一个实时打包的 http 服务器
 
-![image-20220403170154932](Vue学习笔记.assets/image-20220403170154932.png)
+![image-20220403170154932](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301326149.png)
 
 ### 4.8.2、打包生成的文件哪儿去了？
 
@@ -501,7 +501,7 @@ webpack-dev-server 可以让 webpack **监听项目源代码的变化**，从而
 - 严格遵守开发者在 webpack.config.js 中指定配置
 - 根据 output 节点指定路径进行存放
 
-![image-20220403170315245](Vue学习笔记.assets/image-20220403170315245.png)
+![image-20220403170315245](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301326460.png)
 
 ② **配置**了 webpack-dev-server 之后，打包生成的文件存放到了内存中
 
@@ -514,21 +514,21 @@ webpack-dev-server 生成到内存中的文件，默认放到了项目的根目�
 
 - 可以直接用 / 表示项目根目录，后面跟上要访问的文件名称，即可访问内存中的文件
 
-  ![image-20220403170352958](Vue学习笔记.assets/image-20220403170352958-1650111054221.png)
+  ![image-20220403170352958](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301326549.png)
 
 - 例如 /bundle.js 就表示要访问 webpack-dev-server 生成到内存中的 bundle.js 文件
 
   `webpack output is served from /` 表示生成的 bundle.js 在根目录
 
-  ![image-20220408173034797](Vue学习笔记.assets/image-20220408173034797.png)
+  ![image-20220408173034797](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301326593.png)
 
   根目录中没有 bundle.js 文件，此时的 bundle.js 文件在内存中
 
-  ![image-20220403170352958](Vue学习笔记.assets/image-20220403170352958-1650111068196.png)
+  ![image-20220403170352958](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301326613.png)
 
   可以访问内存中的 bundle.js 文件
 
-  ![image-20220403170420324](Vue学习笔记.assets/image-20220403170420324.png)
+  ![image-20220403170420324](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301326277.png)
 
   修改代码保存后会被 webpack-dev-server 插件监听到，此时插件会重新自动的打包在内存中生成新的 bundle.js 文件，生成新的文件后会自动刷新浏览器，节省重启服务器的时间
 
@@ -540,7 +540,7 @@ html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定
 
 需求：通过 html-webpack-plugin 插件，将 src 目录下的 index.html 首页，复制到项目根目录中一份！（默认访问 http://localhost:8080 地址时自动跳转到 index.html）
 
-![image-20220408172227874](Vue学习笔记.assets/image-20220408172227874.png)
+![image-20220408172227874](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301327751.png)
 
 - **安装 html-webpack-plugin**
 
@@ -581,11 +581,11 @@ html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定
 
 ① 通过 HTML 插件复制到项目根目录中的 index.html 页面，也被放到了内存中（访问根目录可直接访问到 index.html）
 
-![image-20220403175640386](Vue学习笔记.assets/image-20220403175640386.png)
+![image-20220403175640386](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301327078.png)
 
 ② HTML 插件在生成的 index.html 页面，自动注入了打包的 bundle.js 文件
 
-![image-20220403180659553](Vue学习笔记.assets/image-20220403180659553.png)
+![image-20220403180659553](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301327854.png)
 
 ### 4.8.6、devServer 节点
 
@@ -613,7 +613,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
 
   没有 loader 处理 css 文件时，导入 css 文件会报错：
 
-  ![image-20220408193948542](Vue学习笔记.assets/image-20220408193948542.png)
+  ![image-20220408193948542](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301327029.png)
 
 - less-loader 可以打包处理 .less 相关的文件
 
@@ -621,7 +621,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
 
 ### 4.9.2、loader 的调用过程
 
-![image-20220408192438293](Vue学习笔记.assets/image-20220408192438293.png)
+![image-20220408192438293](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301327782.png)
 
 ### 4.9.3、打包处理 css 文件
 
@@ -654,7 +654,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
 
 **loader 调用的过程**
 
-![01.loader调用的过程](Vue学习笔记.assets/01.loader调用的过程-1650111203254.png)
+![01.loader调用的过程](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301327790.png)
 
 ### 4.9.4、打包处理 less 文件
 
@@ -733,7 +733,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
   console.log(logo)
   ```
 
-  ![image-20220409103819140](Vue学习笔记.assets/image-20220409103819140.png)
+  ![image-20220409103819140](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301327573.png)
 
   补充：base64 的图片优缺点
 
@@ -773,7 +773,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
 
 - webpack 加载处理 index.js 文件，会生成 bundle.js 文件，bundle.js 文件中包含打包好的样式、路径等模块
 
-  ![image-20220409111030385](Vue学习笔记.assets/image-20220409111030385.png)
+  ![image-20220409111030385](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301327253.png)
 
   webpack 把一个样式表加载过来之后，会把样式转换为类似于 js 文件运行
 
@@ -916,17 +916,17 @@ Source Map 就是一个信息文件，里面储存着位置信息。也就是说
 
 在开发环境下，webpack 默认启用了Source Map 功能。当程序运行出错时，可以直接在控制台提示错误行的位置，并定位到具体的源代码：
 
-![image-20220409144801655](Vue学习笔记.assets/image-20220409144801655.png)
+![image-20220409144801655](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328262.png)
 
-![image-20220409144840046](Vue学习笔记.assets/image-20220409144840046.png)
+![image-20220409144840046](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328110.png)
 
 - **默认 Source Map 的问题**
 
 - 开发环境下默认生成的Source Map，记录的是生成后的代码的位置。**会导致运行时报错的行数与源代码的行数不一致的问题**。示意图如下：
 
-  ![image-20220409145040678](Vue学习笔记.assets/image-20220409145040678.png)
+  ![image-20220409145040678](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328815.png)
 
-  ![image-20220409145051408](Vue学习笔记.assets/image-20220409145051408.png)
+  ![image-20220409145051408](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328724.png)
 
 - **解决默认Source Map的问题**
 
@@ -948,9 +948,9 @@ Source Map 就是一个信息文件，里面储存着位置信息。也就是说
 
 在生产环境下，如果省略了devtool 选项，则最终生成的文件中不包含Source Map。这能够防止原始代码通过Source Map 的形式暴露给别有所图之人。
 
-![image-20220409145512105](Vue学习笔记.assets/image-20220409145512105.png)
+![image-20220409145512105](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328919.png)
 
-![image-20220409145536359](Vue学习笔记.assets/image-20220409145536359.png)
+![image-20220409145536359](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328893.png)
 
 - **只定位行数不暴露源码**
 
@@ -958,17 +958,17 @@ Source Map 就是一个信息文件，里面储存着位置信息。也就是说
 
   nosources-source-map。实际效果如图所示：
 
-  ![image-20220409145859168](Vue学习笔记.assets/image-20220409145859168-1650111373682.png)
+  ![image-20220409145859168](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328588.png)
 
-  ![image-20220409145918046](Vue学习笔记.assets/image-20220409145918046.png)
+  ![image-20220409145918046](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328437.png)
 
 - **定位行数且暴露源码**
 
   在生产环境下，如果想在定位报错行数的同时，展示具体报错的源码。此时可以将devtool的值设置为source-map。实际效果如图所示：
 
-  ![image-20220409145959971](Vue学习笔记.assets/image-20220409145959971.png)
+  ![image-20220409145959971](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328781.png)
 
-  ![image-20220409150016268](Vue学习笔记.assets/image-20220409150016268.png)
+  ![image-20220409150016268](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301328317.png)
 
   采用此选项后：你应该将你的服务器配置为，不允许普通用户访问source map 文件！
 
@@ -1095,7 +1095,7 @@ vue 框架的特性，主要体现在如下两方面：
 
 MVVM 是 vue 实现数据驱动视图和双向数据绑定的核心原理。MVVM 指的是 Model、View 和 ViewModel， 它把每个 HTML 页面都拆分成了这三个部分，如图所示：
 
-<img src="Vue学习笔记.assets/image-20220416204536327.png" alt="image-20220416204536327" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301329469.png" alt="image-20220416204536327" style="zoom:50%;" />
 
 在 MVVM 概念中：
 
@@ -1109,7 +1109,7 @@ ViewModel 表示 vue 的实例，它是 MVVM 的核心。
 
 ViewModel 作为 MVVM 的核心，是它把当前页面的数据源（Model）和页面的结构（View）连接在了一起。
 
-<img src="Vue学习笔记.assets/image-20220416204704499.png" alt="image-20220416204704499" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301329415.png" alt="image-20220416204704499" style="zoom:67%;" />
 
 当数据源发生变化时，会被 ViewModel 监听到，VM 会根据最新的数据源自动更新页面的结构 当表单元素的值发生变化时，也会被 VM 监听到，VM 会把变化过后最新的值自动同步到 Model 数据源中
 
@@ -1386,7 +1386,7 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
     ```
   - **测试结果：**
     
-    ![截图](Vue学习笔记.assets/ca13119b28aa5830975fea2e087ecd64.png)
+    ![截图](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301329316.png)
     
 
 
@@ -1485,9 +1485,9 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
     ```
   - 测试结果：
     
-    <img src="83aac3a3961e3be60bf2b3e9fba3169a.png" alt="截图" style="zoom:50%;" />
+    <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301330535.png" alt="83aac3a3961e3be60bf2b3e9fba3169a" style="zoom:50%;" />
     
-    ![截图](Vue学习笔记.assets/f4cb9b91b6f2aefd2f13af60786670e5.png)
+    ![截图](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301329069.png)
   - class样式数组绑定
     ```html
     <!DOCTYPE html>
@@ -1533,9 +1533,9 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
     ```
   - 测试结果
     
-    <img src="Vue学习笔记.assets/83aac3a3961e3be60bf2b3e9fba3169a.png" alt="83aac3a3961e3be60bf2b3e9fba3169a.png" style="zoom:50%;" />
+    <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301330968.png" alt="83aac3a3961e3be60bf2b3e9fba3169a.png" style="zoom:50%;" />
     
-    ![f4cb9b91b6f2aefd2f13af60786670e5.png](f4cb9b91b6f2aefd2f13af60786670e5.png)
+    ![f4cb9b91b6f2aefd2f13af60786670e5](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301331460.png)
   - class样式对象绑定和数组绑定结合使用及简化操作
     ```html
     <!DOCTYPE html>
@@ -1599,9 +1599,9 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
     ```
   - **测试结果**
     
-    <img src="Vue学习笔记.assets/13461adb14b6445cb5c5b31ec0b06707.png" alt="截图" style="zoom:50%;" />
+    <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301331283.png" alt="截图" style="zoom:50%;" />
     
-    <img src="Vue学习笔记.assets/3c03a108abb6d187291af996bc841cd6.png" alt="截图" style="zoom:50%;" />
+    <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301331961.png" alt="截图" style="zoom:50%;" />
 
 - **style 样式处理**
   - 内联样式 style：
@@ -1656,9 +1656,9 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
   ```
   - 测试结果
     
-    <img src="Vue学习笔记.assets/a2b58d658fcc288df536fe1b7c7332f7.png" alt="截图" style="zoom:50%;" />
+    <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301331657.png" alt="截图" style="zoom:50%;" />
     
-    <img src="Vue学习笔记.assets/aedcbf23ee44869011a0ec94224fd9b0.png" alt="截图" style="zoom:50%;" />
+    <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301331441.png" alt="截图" style="zoom:50%;" />
   - 
 
 ## 5.2、条件渲染指令 分支结构
@@ -1793,9 +1793,9 @@ data:{
 </ul>
 ```
 
-![image-20220415182343881](Vue学习笔记.assets/image-20220415182343881.png)添加一个新的数据项，勾选的是 索引为 0 ，id = 3 的数据项（复选框勾选的数据项发生了改变）
+![image-20220415182343881](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301331165.png)添加一个新的数据项，勾选的是 索引为 0 ，id = 3 的数据项（复选框勾选的数据项发生了改变）
 
-![image-20220415182555710](Vue学习笔记.assets/image-20220415182555710.png)
+![image-20220415182555710](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301331650.png)
 
 总结：index（索引）不具有唯一性，id 具有唯一性
 
@@ -1814,7 +1814,7 @@ data:{
 
 ### 5.3.3、v-if 和 v-for
 
-<img src="Vue学习笔记.assets/15de62d6503768f55204dfea32e622b5.png" alt="截图" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301331588.png" alt="截图" style="zoom:50%;" />
 
 - **作用：**
   
@@ -1943,7 +1943,7 @@ data:{
 
 在事件处理函数中调用 event.preventDefault() 或 event.stopPropagation() 是非常常见的需求。因此， vue 提供了事件修饰符的概念，来辅助程序员更方便的对事件的触发进行控制。常用的 5 个事件修饰符如下：
 
-<img src="Vue学习笔记.assets/image-20220418153837426.png" alt="image-20220418153837426" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332956.png" alt="image-20220418153837426" style="zoom:67%;" />
 
 示例：
 
@@ -2053,7 +2053,7 @@ Vue.js是一个MV VM框架， 即数据双向绑定， 即当数据发生变化�
 
 测试结果：
 
-<img src="Vue学习笔记.assets/1282e9b03aed6d9ff0fd418da49afce3.png" alt="截图" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332321.png" alt="截图" style="zoom:50%;" />
 
 ### 5.5.4、v-model的运用场景
 
@@ -2235,9 +2235,9 @@ Vue.js是一个MV VM框架， 即数据双向绑定， 即当数据发生变化�
 
 **测试结果**
 
-<img src="Vue学习笔记.assets/ba3764d5ab7d0432bccad2a2e02a5f1b.png" alt="截图" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332682.png" alt="截图" style="zoom:50%;" />
 
-<img src="Vue学习笔记.assets/51ca5ab39a5d03672e00bdcbcb537402.png" alt="截图" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332593.png" alt="截图" style="zoom:50%;" />
 
 **（6）radio 单选按钮**
 
@@ -2410,7 +2410,7 @@ Vue.js是一个MV VM框架， 即数据双向绑定， 即当数据发生变化�
 
 **测试结果：**
 
-<img src="Vue学习笔记.assets/f7d6ad8f7b5f5d8b764a404a1e622cc6.png" alt="截图" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332438.png" alt="截图" style="zoom:50%;" />
 
 注意：v-model表达式的初始值未能匹配任何选项，元系将被渲染为“未选中”状态。 在iOS中， 这会使用户无法选择第一个选项，因为这样的情况下，iOS不会触发change事件。因此，更推荐像上面这样提供一个值为空的禁用选项。
 
@@ -2490,7 +2490,7 @@ Vue.js是一个MV VM框架， 即数据双向绑定， 即当数据发生变化�
 
 **测试结果**
 
-<img src="Vue学习笔记.assets/ecb2ce5c11dd04903ce0df9750230f2b.png" alt="截图" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332379.png" alt="截图" style="zoom:50%;" />
 
 ### 5.5.6、总结
 
@@ -2540,7 +2540,7 @@ v-bind只能实现数据的单项绑定
 
 测试结果：
 
-<img src="Vue学习笔记.assets/1194c668b8368a83c24a69ca9989b9d8.png" alt="截图" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332862.png" alt="截图" style="zoom:50%;" />
 
 ### 6.1.1、自定义对象中的钩子函数及钩子函数参数
 
@@ -2611,7 +2611,7 @@ v-bind只能实现数据的单项绑定
 
 **测试结果：**
 
-<img src="Vue学习笔记.assets/a30168dd1afc24684d50647a56255fb6.png" alt="截图" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332133.png" alt="截图" style="zoom:50%;" />
 
 ## 6.3、自定义局部指令用法
 
@@ -2660,7 +2660,7 @@ v-bind只能实现数据的单项绑定
 
 测试结果：
 
-![image-20220320150949270](Vue学习笔记.assets/image-20220320150949270.png)
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332498.png" alt="image-20220320150949270" style="zoom:50%;" />
 
 ## 6.4、自定义指令（新）
 
@@ -2763,7 +2763,7 @@ data(){
 
 点击按钮后，data 数据中的 color 值改变了，但没有调用自定义指令中的 bind() 函数，所以不会改变颜色
 
-![image-20220416193115578](Vue学习笔记.assets/image-20220416193115578.png)
+![image-20220416193115578](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301332812.png)
 
 
 
@@ -2792,7 +2792,7 @@ bind 函数只调用 1 次：当指令第一次绑定到元素时调用，当 DO
 
 测试结果：
 
-![image-20220416193348871](Vue学习笔记.assets/image-20220416193348871.png)
+![image-20220416193348871](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301333119.png)
 
 ### 6.4.8、函数简写
 
@@ -2846,8 +2846,8 @@ Vue.directive('color', function(el, binding) {
 ## 6.1、什么是组件
 
 组件是（对）可复用的`Vue`实例， 说白了就是一组可以重复使用的模板， 跟JSTL的自定义标签、`Thymeleal`的`th:fragment`等框架有着异曲同工之妙，通常一个应用会以一棵嵌套的组件树的形式来组织：
-![截图](Vue学习笔记.assets/d71e541352951ac7b0945b017bb56626.png)
-![截图](Vue学习笔记.assets/a1b2ae61d4be2084a99de6a1e823bebf.png)
+![截图](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301333587.png)
+![截图](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301333139.png)
 
 例如，你可能会有页头、侧边栏、内容区等组件，每个组件又包含了其它的像导航链接、博文之类的组件。
 
@@ -3030,7 +3030,7 @@ Vue.directive('color', function(el, binding) {
 
 **注意： 局部组件只能在注册他的父组件中使用，在其子组件中不可用。否则会报相关错误。**
 
-![截图](Vue学习笔记.assets/0bfc9cf7d8b899a0798d5046dfc986aa.png)
+![截图](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301333356.png)
 
 ### 6.1.3、组件的自定义属性 props
 
@@ -3079,7 +3079,7 @@ vue 规定：组件中封装的自定义属性是只读的，**程序员不能�
    <button @click="init += 1">+1</button>
 ```
 
-![image-20220410144352271](Vue学习笔记.assets/image-20220410144352271.png)
+![image-20220410144352271](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301333971.png)
 
 要想修改 props 的值，可以把 props 的值转存到 data 中，因为 data 中的数据都是可读可写的！
 
@@ -3094,7 +3094,7 @@ vue 规定：组件中封装的自定义属性是只读的，**程序员不能�
 
 可通过this 获取 init 的值
 
-![image-20220410162431055](Vue学习笔记.assets/image-20220410162431055.png)
+![image-20220410162431055](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301333614.png)
 
 #### 6.1.3.2、props 的 default 默认值
 
@@ -3214,7 +3214,7 @@ export default{
 
 测试结果：
 
-![image-20220410155529901](Vue学习笔记.assets/image-20220410155529901.png)
+![image-20220410155529901](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301333060.png)
 
 #### 6.1.4.3、/deep/ 样式穿透
 
@@ -3234,11 +3234,11 @@ export default{
 
 不加 /deep/ 时
 
-![image-20220410161454284](Vue学习笔记.assets/image-20220410161454284.png)
+![image-20220410161454284](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301333794.png)
 
 加 /deep/ 时
 
-![image-20220410161334392](Vue学习笔记.assets/image-20220410161334392.png)
+![image-20220410161334392](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334892.png)
 
 适用领域：
 
@@ -3311,7 +3311,7 @@ export default{
 
 **测试结果：**
 
-<img src="Vue学习笔记.assets/image-20220320150949270-1650111604293.png" alt="image-20220320150949270" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334485.png" alt="image-20220320150949270" style="zoom:50%;" />
 
 ****
 
@@ -3465,7 +3465,7 @@ props 属性名类型：
 
 测试结果：
 
-![image-20220320163709022](Vue学习笔记.assets/image-20220320163709022.png)
+![image-20220320163709022](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334946.png)
 
 ### 6.1.5、自定义事件
 
@@ -3719,7 +3719,7 @@ export default{
 
   测试结果:
 
-  ![image-20220415204511234](Vue学习笔记.assets/image-20220415204511234.png)
+  ![image-20220415204511234](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334121.png)
 
 
 
@@ -3764,7 +3764,7 @@ export default{
 
   测试结果：
 
-  ![image-20220415210955683](Vue学习笔记.assets/image-20220415210955683.png)
+  ![image-20220415210955683](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334474.png)
 
 - 案例需求：控制文本框和按钮的按需切换并且让文本框自动获得焦点
 
@@ -3822,7 +3822,7 @@ export default{
 
   此时不能获取文本框的 DOM 元素，最新的值 `this.inputVisible = true` 还没有渲染到 DOM 页面，因此引出下面的方法。
 
-  ![image-20220416001745333](Vue学习笔记.assets/image-20220416001745333.png)
+  ![image-20220416001745333](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334514.png)
 
 - **this.$nextTick(cb)方法**
 
@@ -3889,7 +3889,7 @@ export default{
 
 测试结果：
 
-![image-20220324195555900](Vue学习笔记.assets/image-20220324195555900.png)
+![image-20220324195555900](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334060.png)
 
 ### 6.1.7、具名插槽用法
 
@@ -3955,7 +3955,7 @@ export default{
 
 测试结果：
 
-![image-20220320194502800](Vue学习笔记.assets/image-20220320194502800-1650111689025.png)
+![image-20220320194502800](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334195.png)
 
 ### 6.1.8、作用域插槽
 
@@ -4025,7 +4025,7 @@ export default{
 
 测试结果：
 
-![image-20220320202749350](Vue学习笔记.assets/image-20220320202749350.png)
+![image-20220320202749350](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334642.png)
 
 
 ### 6.1.9、动态组件
@@ -4079,7 +4079,7 @@ export default{
 
    默认情况下，切换动态组件时无法保持组件的状态（切换组件时，组件会被销毁）。
 
-   ![image-20220416113739537](Vue学习笔记.assets/image-20220416113739537.png)
+   ![image-20220416113739537](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301334339.png)
 
    此时可以使用 vue 内置的  组件保持动态组 件的状态。示例代码如下：
 
@@ -4093,7 +4093,7 @@ export default{
 
    此时的 Left 子组件被缓存起来了，Right 子组件是处于激活的状态
 
-   ![image-20220416113955660](Vue学习笔记.assets/image-20220416113955660.png)
+   ![image-20220416113955660](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301335939.png)
 
 4. **keep-alive 对应的生命周期函数**
 
@@ -4122,7 +4122,7 @@ export default{
 
    测试结果：
 
-   ![image-20220416115141893](Vue学习笔记.assets/image-20220416115141893.png)
+   ![image-20220416115141893](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301335250.png)
 
 5. **keep-active 的 include,exclude 属性**
 
@@ -4143,7 +4143,7 @@ export default{
 
    组件声明时候的 “name” 名称的主要应用场景：结合 `<keep-alive>` 标签实现组件缓存功能；以及在调试工具中看到组件的 name 名称
 
-   <img src="Vue学习笔记.assets/image-20220416121111432.png" alt="image-20220416121111432" style="zoom:50%;" />
+   <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301335403.png" alt="image-20220416121111432" style="zoom:50%;" />
 
    ```js
    <script>
@@ -4173,7 +4173,7 @@ export default{
 
    插槽（Slot）是 vue 为组件的封装者提供的能力。允许开发者在封装组件时，把不确定的、希望由用户指定的部分定义为插槽。
 
-   ![image-20220416151049977](Vue学习笔记.assets/image-20220416151049977.png)
+   ![image-20220416151049977](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301335483.png)
 
    可以把插槽认为是组件封装期间，为用户预留的内容的占位符
 
@@ -4272,7 +4272,7 @@ export default{
 
    v-slot 指令必须定义在 `<tempalte>`元素上
 
-   ![image-20220416164421732](Vue学习笔记.assets/image-20220416164421732.png)
+   ![image-20220416164421732](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301335189.png)
 
    示例代码如下：
 
@@ -4299,7 +4299,7 @@ export default{
 
    测试结果：
 
-   ![image-20220416161054979](Vue学习笔记.assets/image-20220416161054979.png)
+   ![image-20220416161054979](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301335222.png)
 
 4. 作用域插槽
 
@@ -4350,7 +4350,7 @@ export default{
 
    测试结果：
 
-   ![image-20220416163258237](Vue学习笔记.assets/image-20220416163258237.png)
+   ![image-20220416163258237](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301335810.png)
 
    4.2. 解构插值 Prop
 
@@ -4371,7 +4371,7 @@ export default{
 
    测试结果：
 
-   ![image-20220416164045358](Vue学习笔记.assets/image-20220416164045358.png)
+   ![image-20220416164045358](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301335203.png)
 
 
 
@@ -4478,9 +4478,9 @@ h1 {
 
 注意：生命周期强调的是时间段，生命周期函数强调的是时间点。
 
-![lifecycle](Vue学习笔记.assets/lifecycle.png)
+![lifecycle](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336493.png)
 
-![image-20220410174743595](Vue学习笔记.assets/image-20220410174743595.png)
+![image-20220410174743595](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336746.png)
 
 
 
@@ -4514,7 +4514,7 @@ export default {
 
 测试结果：
 
-![image-20220410180626975](Vue学习笔记.assets/image-20220410180626975.png)
+![image-20220410180626975](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336605.png)
 
 ### 6.3.2、created() 生命周期函数
 
@@ -4566,7 +4566,7 @@ export default {
 
 测试结果：
 
-![image-20220411203207502](Vue学习笔记.assets/image-20220411203207502.png)
+![image-20220411203207502](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336755.png)
 
 created 生命周期函数，非常常用。经常在它里面，调用 methods 中的方法，请求服务器的数据。并且，把请求到的数据，转存到 data 中（关键步骤），供 template 模板渲染的时候使用！
 
@@ -4627,11 +4627,11 @@ export default {
 
 将网速调慢。1. 先将空数组渲染到页面
 
-![image-20220411214524238](Vue学习笔记.assets/image-20220411214524238.png)
+![image-20220411214524238](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336306.png)
 
 2. 在 Ajax 数据请求完成后，页面渲染出转储存 data 中的数据。
 
-![image-20220411215305584](Vue学习笔记.assets/image-20220411215305584.png)
+![image-20220411215305584](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336999.png)
 
 ### 6.3.3、beforeMount() 生命周期函数
 
@@ -4655,7 +4655,7 @@ export default {
 
 此时还不能操作 DOM 元素
 
-![image-20220412082727602](Vue学习笔记.assets/image-20220412082727602.png)
+![image-20220412082727602](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336580.png)
 
 ### 6.3.4、Mounted() 生命周期函数
 
@@ -4676,7 +4676,7 @@ export default {
 
 测试结果：
 
-![image-20220412084319698](Vue学习笔记.assets/image-20220412084319698.png)
+![image-20220412084319698](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336268.png)
 
 **总结：在组件创建阶段的生命周期函数只执行一次。**
 
@@ -4697,7 +4697,7 @@ export default {
 
 测试结果：
 
-![image-20220412091831461](Vue学习笔记.assets/image-20220412091831461.png)
+![image-20220412091831461](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336147.png)
 
 ### 6.3.6、updated() 生命周期函数
 
@@ -4719,7 +4719,7 @@ export default {
 
 测试结果：
 
-![image-20220412093109596](Vue学习笔记.assets/image-20220412093109596.png)
+![image-20220412093109596](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301336932.png)
 
 **总结：在组件运行阶段的生命周期函数，根据数据的变化函数可以一直执行，若数据没有发生变化则不执行函数。**
 
@@ -4741,7 +4741,7 @@ export default {
 
 此阶段组件还处于正常工作的状态
 
-![image-20220412123416194](Vue学习笔记.assets/image-20220412123416194.png)6.3.8、destroyed() 生命周期函数
+![image-20220412123416194](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301337163.png)6.3.8、destroyed() 生命周期函数
 
 在 destroyed() 函数之前，已经销毁了当前组件的数据侦听器、子组件、事件监听。
 
@@ -4758,7 +4758,7 @@ export default {
 
 DOM 结构已经被完全移除，数据不能够渲染到 DOM 结构中
 
-![image-20220412123620004](Vue学习笔记.assets/image-20220412123620004.png)
+![image-20220412123620004](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301337430.png)
 
 # 七、Axios异步通信
 
@@ -4818,11 +4818,11 @@ GitHub：[https://github.com/axios/axios](https://)
 
 测试结果：
 
-![image-20220418191433317](Vue学习笔记.assets/image-20220418191433317.png)
+![image-20220418191433317](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301353215.png)
 
 axios 封装的6个属性：
 
-![axios 封装的 6 个属性](Vue学习笔记.assets/axios 封装的 6 个属性.png)
+![axios 封装的 6 个属性](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301353148.png)
 
 注意：真实的数据在 result.data 中
 
@@ -4867,7 +4867,7 @@ document.querySelector('#btnPost').addEventListener('click', async function () {
 
 测试结果：
 
-![image-20220409181040825](Vue学习笔记.assets/image-20220409181040825.png)
+![image-20220409181040825](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301353860.png)
 
 
 
@@ -4897,7 +4897,7 @@ document.querySelector('#btnGET').addEventListener('click', async function () {
 
 测试结果：
 
-![image-20220409183006003](Vue学习笔记.assets/image-20220409183006003.png)
+![image-20220409183006003](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301353070.png)
 
 ### 7.3.4、全局配置 axios 
 
@@ -5137,7 +5137,7 @@ $ 是在 Vue 所有实例中都可用的 property 的一个简单约定。这样
 
 测试结果：
 
-<img src="Vue学习笔记.assets/image-20220323210516595.png" alt="image-20220323210516595" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301353485.png" alt="image-20220323210516595" style="zoom:50%;" />
 
 ### 8.1.1、计算属性的特点：
 
@@ -5249,7 +5249,7 @@ computed 属性默认只有 getter ，不过在需要时你也可以提供一个
 
 测试结果：
 
-<img src="Vue学习笔记.assets/image-20220323210916204.png" alt="image-20220323210916204" style="zoom: 80%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301354227.png" alt="image-20220323210916204" style="zoom: 80%;" />
 
 从实例运行结果看在运行 vm.site = 'baidu,http://www.baidu.com'; 时，setter 会被调用， vm.name 和 vm.url 也会被对应更新。
 
@@ -5374,7 +5374,7 @@ emit自定义事件分发this.emit('remove',index);
 
 **逻辑理解**
 
-![Vue学习笔记.assets/05d401d4852fb1a8d5136c3c722827be.png](Vue学习笔记.assets/05d401d4852fb1a8d5136c3c722827be.png)
+![Vue学习笔记.assets/05d401d4852fb1a8d5136c3c722827be.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301354349.png)
 
 **8.4、Vue入门小结**
 
@@ -5415,7 +5415,7 @@ watch 侦听器允许开发者监视数据的变化，从而针对数据的变�
 
 ### 8.4.1、图示侦听器的过程
 
-<img src="Vue学习笔记.assets/image-20220323212839860.png" alt="image-20220323212839860" style="zoom:80%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301354362.png" alt="image-20220323212839860" style="zoom:80%;" />
 
 ### 8.4.2、侦听器的应用场景
 
@@ -5500,11 +5500,11 @@ watch 侦听器允许开发者监视数据的变化，从而针对数据的变�
 
 此时正在模拟接口正在调用
 
-<img src="Vue学习笔记.assets/image-20220323213654869.png" alt="image-20220323213654869" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301354258.png" alt="image-20220323213654869" style="zoom:67%;" />
 
 数据发生变化时触发 `usename` 的监听事件，先模拟接口提示验证信息，在两秒后调用一次 `checkName()` 方法进行验证。
 
-<img src="Vue学习笔记.assets/image-20220323214434857.png" alt="image-20220323214434857" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301354316.png" alt="image-20220323214434857" style="zoom:67%;" />
 
 #### 8.4.3.1使用 watch 和 ajax 检测用户名是否可用
 
@@ -5537,7 +5537,7 @@ watch 侦听器允许开发者监视数据的变化，从而针对数据的变�
 
 调用接口检测 admin 用户名不可用
 
-![Vue学习笔记.assets/image-20220415192841220](Vue学习笔记.assets/image-20220415192841220.png)
+![Vue学习笔记.assets/image-20220415192841220](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301354132.png)
 
 **监听器的应用场景：监听某个数据发生的变化，并执行一件事**
 
@@ -5603,7 +5603,7 @@ watch 侦听器允许开发者监视数据的变化，从而针对数据的变�
 
   测试结果：
 
-  <img src="Vue学习笔记.assets/image-20220323213415538.png" alt="image-20220323213415538" style="zoom:80%;" />
+  <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301354823.png" alt="image-20220323213415538" style="zoom:80%;" />
 
   此示例计算属性效率更高，当处理异步或开销比较大的时候使用侦听器效果更好。
 
@@ -5644,7 +5644,7 @@ watch 侦听器允许开发者监视数据的变化，从而针对数据的变�
 
   测试结果:
 
-  ![image-20220415194120924](Vue学习笔记.assets/image-20220415194120924.png)
+  ![image-20220415194120924](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301354725.png)
 
 - deep 选项
 
@@ -5951,7 +5951,7 @@ Vue.filter('filterA',(msg,arg1,arg2) => {
 
 测试结果：
 
-<img src="Vue学习笔记.assets/image-20220323224147011.png" alt="image-20220323224147011" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301355686.png" alt="image-20220323224147011" style="zoom:67%;" />
 
 # 九、vue-cli
 
@@ -6001,7 +6001,7 @@ npm install --registry=https://registry.npm.taobao.org
 
   安装的位置：`C:\Users\administrator\AppData\Roaming\npm`
 
-![Vue学习笔记.assets/461afcb940922444efca074b6e4a7841.png](Vue学习笔记.assets/461afcb940922444efca074b6e4a7841.png)
+![Vue学习笔记.assets/461afcb940922444efca074b6e4a7841.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301355521.png)
 
 <br/>
 
@@ -6013,7 +6013,7 @@ cnpm instal1 vue-cli-g
 vue list
 ```
 
-![120c1970be45960f24799dc32a8f783b4.png](Vue学习笔记.assets/10c1970be45960f24799dc32a8f783b4.png)
+![120c1970be45960f24799dc32a8f783b4.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301355911.png)
 
 ## 9.3、vue 项目的运行流程
 
@@ -6069,7 +6069,7 @@ npm run dev
 
 当出现问题时，可以查看提示进行处理如下
 
-![5f4c94d19107d70771f295600c5cba76.png](Vue学习笔记.assets/5f4c94d19107d70771f295600c5cba76.png)
+![5f4c94d19107d70771f295600c5cba76.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301355728.png)
 
 # 十、webpack使用
 
@@ -6229,7 +6229,7 @@ npm install webpack-cli -g
 - webpack -v
 - webpack-cli -v
 
-![95ac3f86e6fc6cba1c528ec28d86ad15.png](Vue学习笔记.assets/95ac3f86e6fc6cba1c528ec28d86ad15.png)
+![95ac3f86e6fc6cba1c528ec28d86ad15.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301355475.png)
 
 **配置**
 
@@ -6336,7 +6336,7 @@ webpack --watch
   
   - 前端路由把当前 Hash 地址对应的组件渲染到浏览器中
   
-    ![image-20220416122605954](Vue学习笔记.assets/image-20220416122605954.png)
+    ![image-20220416122605954](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301355155.png)
   
 - SPA 与前端路由
 
@@ -6445,23 +6445,23 @@ Vue Router是Vue.js官方的路由管理器。它和Vue.js的核心深度集成�
 
   **1、箭头函数是匿名函数，不能作为构造函数，不能使用new，普通函数可以作为构造函数，使用new。**
 
-  <img src="Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/2327410-20210516210043658-294763669.png" alt="img" style="zoom:50%;" />
+  <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301355031.png" alt="img" style="zoom:50%;" />
 
-  <img src="Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/2327410-20210516210137476-1736717570.png" alt="img" style="zoom: 67%;" />
+  <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301355795.png" alt="img" style="zoom: 67%;" />
 
    **2、箭头函数捕获上下文中的this作为自己的this，普通函数指向调用它的对象**
 
   
 
-  <img src="Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/2327410-20210516210818268-1826983901.png" alt="img" style="zoom: 50%;" />
+  <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356700.png" alt="img" style="zoom: 50%;" />
 
   3、箭头函数采用rest参数传递实参，普通函数采用arguments解决实参传递
 
-  <img src="Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/2327410-20210516211230068-1856737244.png" alt="img" style="zoom: 67%;" />
+  <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356154.png" alt="img" style="zoom: 67%;" />
 
    4、箭头函数没有原型属性
 
-  <img src="Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/2327410-20210516211641875-1540223280.png" alt="img" style="zoom: 67%;" />
+  <img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356189.png" alt="img" style="zoom: 67%;" />
 
 ## 11.3、vue-router 的基本用法
 
@@ -6595,7 +6595,7 @@ const router =  new VueRouter({
 
 通过路由实现组件的嵌套展示，叫做嵌套路由。
 
-<img src="Vue学习笔记.assets/image-20220419082734367.png" alt="image-20220419082734367" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356539.png" alt="image-20220419082734367" style="zoom:67%;" />
 
 ### 11.4.3、声明子路由链接和子路由占位符
 
@@ -6620,7 +6620,7 @@ const router =  new VueRouter({
 
 测试结果：
 
-<img src="Vue学习笔记.assets/image-20220419083101540.png" alt="image-20220419083101540" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356869.png" alt="image-20220419083101540" style="zoom:50%;" />
 
 ### 11.4.4、通过 children 属性声明子路由规则
 
@@ -6712,7 +6712,7 @@ const router = new VueRouter({
 
 - 可以使用 this.$route.params 对象访问到动态匹配的参数值。
 
-  ![image-20220419213315779](Vue学习笔记.assets/image-20220419213315779.png)
+  ![image-20220419213315779](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356819.png)
 
   ```html
   // 路由的动态参数以: 进行声明，冒号后面的是动态参数的名称
@@ -6754,7 +6754,7 @@ const router = new VueRouter({
   <router-link to="/movie/2?name=zs&age=20">雷神</router-link>
   <router-link to="/movie/3">复联</router-link>
   ```
-  ![image-20220420133057451](Vue学习笔记.assets/image-20220420133057451.png)
+  ![image-20220420133057451](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356020.png)
 
 - 使用 props 接收路由参数值
 
@@ -6841,11 +6841,11 @@ export default {
 
 点击 push 跳转
 
-![image-20220420141110600](Vue学习笔记.assets/image-20220420141110600.png)
+![image-20220420141110600](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356528.png)
 
 会增加一条历史记录
 
-![image-20220420140820569](Vue学习笔记.assets/image-20220420140820569.png)
+![image-20220420140820569](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301356955.png)
 
 ##### $router.replace 
 
@@ -6857,7 +6857,7 @@ push 和 replace 的区别：
 
 - replace 不会增加历史记录，而是替换掉当前的历史记录
 
-![image-20220420141017438](Vue学习笔记.assets/image-20220420141017438.png)
+![image-20220420141017438](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301357711.png)
 
 ##### $router.go
 
@@ -6919,7 +6919,7 @@ export default {
 
 导航守卫可以控制路由的访问权限。示意图如下：
 
-![image-20220420144849089](Vue学习笔记.assets/image-20220420144849089.png)
+![image-20220420144849089](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301357670.png)
 
 ##### 全局前置守卫
 
@@ -6939,7 +6939,7 @@ router.beforeEach(function(to, from, next) {
 
 ##### next 函数的 3 种调用方式
 
-![image-20220420145544310](Vue学习笔记.assets/image-20220420145544310.png)
+![image-20220420145544310](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301357606.png)
 
 当前用户拥有后台主页的访问权限，直接放行：next() 
 
@@ -6981,23 +6981,23 @@ router.beforeEach(function(to, from, next) {
 
 点击路由链接访问后台主页
 
-![image-20220420145904779](Vue学习笔记.assets/image-20220420145904779.png)
+![image-20220420145904779](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301357101.png)
 
 此时无 token 值
 
-<img src="Vue学习笔记.assets/image-20220420150113211.png" alt="image-20220420150113211" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301357337.png" alt="image-20220420150113211" style="zoom:50%;" />
 
 强制跳转到 /login 登录页
 
-![image-20220420150157525](Vue学习笔记.assets/image-20220420150157525.png)
+![image-20220420150157525](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301357229.png)
 
 测试输入 token 值
 
-<img src="image-20220420150304633.png" alt="image-20220420150304633" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301358053.png" alt="image-20220420150304633" style="zoom:67%;" />
 
 再次访问后台主页
 
-<img src="Vue学习笔记.assets/image-20220420150412075.png" alt="image-20220420150412075" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301357990.png" alt="image-20220420150412075" style="zoom:50%;" />
 
 # 十二、实战快速上手
 
@@ -7043,7 +7043,7 @@ npm run dev
 - views：用于存放Vue视图组件
 - router：用于存放vue-router配置
 
-![1f2dd436d89d8d0ad53d5c4bde7f31d6.png](Vue学习笔记.assets/1f2dd436d89d8d0ad53d5c4bde7f31d6.png)
+![1f2dd436d89d8d0ad53d5c4bde7f31d6.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301358650.png)
 
 **创建首页视图，在views目录下创建一个名为Main.vue的视图组件：**
 
@@ -7390,7 +7390,7 @@ export default new VueRouter({
 
 5、 路由嵌套实战效果图
 
-![276a18263f374640db39d5a5b7bcb544.png](Vue学习笔记.assets/276a18263f374640db39d5a5b7bcb544.png)
+![276a18263f374640db39d5a5b7bcb544.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301358828.png)
 
 图 路由嵌套效果图
 
@@ -7458,7 +7458,7 @@ Profile.vue
 </style>
 ```
 
-![5713fe270dee777307f05236c4f1bdea.png](Vue学习笔记.assets/5713fe270dee777307f05236c4f1bdea.png)
+![5713fe270dee777307f05236c4f1bdea.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301358309.png)
 
 图 传参效果图
 
@@ -7544,7 +7544,7 @@ import NotFound from '../views/NotFound'
 
 3.效果图
 
-![9f6e5d793eec9febf6c27c71c8540dc8.png](Vue学习笔记.assets/9f6e5d793eec9febf6c27c71c8540dc8.png)
+![9f6e5d793eec9febf6c27c71c8540dc8.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301358363.png)
 
 图 404效果图
 
@@ -7646,6 +7646,6 @@ Profile.vue
 
 5.路由钩子和axios结合图
 
-![a303effe000076ca752dae571d042a71.png](Vue学习笔记.assets/a303effe000076ca752dae571d042a71.png)
+![a303effe000076ca752dae571d042a71.png](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202204301359149.png)
 
 **到此结束 完结★,°:.☆(￣▽￣)/$:.°★**
