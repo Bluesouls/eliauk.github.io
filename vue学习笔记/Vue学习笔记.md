@@ -222,20 +222,28 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
 为了降低开发的复杂度， 以后端为出发点， 比如：Struts、Spring MVC等框架的使用， 就是后端的MVC时代；
 以`SpringMVC`流程为例：
 
-![f62afe1e9e6d4ae9dec1502d62e26992.png](f62afe1e9e6d4ae9dec1502d62e26992.png)
-
-<br/>
+![f62afe1e9e6d4ae9dec1502d62e26992.png](Vue学习笔记.assets/f62afe1e9e6d4ae9dec1502d62e26992.png)
 
 - 发起请求到前端控制器(Dispatcher Servlet)
+
 - 前端控制器请求HandlerMapping查找Handler，可以根据xml配置、注解进行查找
+
 - 处理器映射器HandlerMapping向前端控制器返回Handler
+
 - 前端控制器调用处理器适配器去执行Handler
+
 - 处理器适配器去执行Handler
+
 - Handler执行完成给适配器返回ModelAndView
+
 - 处理器适配器向前端控制器返回ModelAndView，ModelAndView是SpringMvc框架的一个底层对象，包括Model和View
+
 - 前端控制器请求视图解析器去进行视图解析，根据逻辑视图名解析成真正的视图(JSP)
+
 - 视图解析器向前端控制器返回View
+
 - 前端控制器进行视图渲染，视图渲染将模型数据(在ModelAndView对象中)填充到request域
+
 - 前端控制器向用户响应结果
   
   **优点**
@@ -243,10 +251,13 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
   MVC是一个非常好的协作模式， 能够有效降低代码的耦合度从架构上能够让开发者明白代码应该写在哪里。为了让View更纯粹， 还可以使用Thyme leaf、Frree marker等模板引擎， 使模板里无法写入Java代码， 让前后端分工更加清晰。
   
   **缺点**
+  
 - 前端开发重度依赖开发环境，开发效率低，这种架构下，前后端协作有两种模式：
   - 第一种是前端写DEMO， 写好后， 让后端去套模板。好处是DEMO可以本地开发， 很高效。不足是还需要后端套模板，有可能套错，套完后还需要前端确定，来回沟通调整的成本比较大；
   - 另一种协作模式是前端负责浏览器端的所有开发和服务器端的View层模板开发。好处是UI相关的代码都是前端去写就好，后端不用太关注，不足就是前端开发重度绑定后端环境，环境成为影响前端开发效率的重要因素。
+  
 - 前后端职责纠缠不清：模板引擎功能强大，依旧可以通过拿到的上下文变量来实现各种业务逻辑。这样，只要前端弱势一点，往往就会被后端要求在模板层写出不少业务代码，还有一个很大的灰色地带是Controller， 页面路由等功能本应该是前端最关注的， 但却是由后端来实现。Controller本身与Model往往也会纠缠不清，看了让人咬牙的业务代码经常会出现在Controller层。这些问题不能全归结于程序员的素养， 否则JSP就够了。
+
 - 对前端发挥的局限性：性能优化如果只在前端做空间非常有限，于是我们经常需要后端合作，但由于后端框架限制，我们很难使用[Comet】、【Big Pipe】等技术方案来优化性能。
   
   **注：在这期间(2005年以前) ， 包括早期的JSP、PHP可以称之为Web 1.0时代。在这里想说一句， 如果你是一名Java初学者， 请你不要再把一些陈旧的技术当回事了， 比如JSP， 因为时代在变、技术在变、什么都在变(引用扎克伯格的一句话：唯一不变的是变化本身)；当我们去给大学做实训时，有些同学会认为我们没有讲什么干货，其实不然，只能说是你认知里的干货对于市场来说早就过时了而已**
@@ -255,12 +266,12 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
 
 时间回到2005年A OAX(Asynchronous JavaScript And XML， 异步JavaScript和XML，老技术新用法)被正式提出并开始使用CDN作为静态资源存储， 于是出现了JavaScript王者归来(在这之前JS都是用来在网页上贴狗皮膏药广告的) 的SPA(Single Page Application) 单页面应用时代。
 
-![8c4d810c04015321587b75c8df0b3a8c.png](8c4d810c04015321587b75c8df0b3a8c.png)
+![8c4d810c04015321587b75c8df0b3a8c.png](Vue学习笔记.assets/8c4d810c04015321587b75c8df0b3a8c.png)
 
 **优点**
 
 这种模式下， **前后端的分工非常清晰， 前后端的关键协作点是AJAX接口。**看起来是如此美妙， 但回过头来看看的话， 这与JSP时代区别不大。复杂度从服务端的JSP里移到了浏览器的JavaScript，浏览器端变得很复杂。类似Spring MVC， **这个时代开始出现浏览器端的分层架构：**
-![efbadc70182d0cdd55bd4d9190dc922a.png](efbadc70182d0cdd55bd4d9190dc922a.png)
+![efbadc70182d0cdd55bd4d9190dc922a.png](Vue学习笔记.assets/efbadc70182d0cdd55bd4d9190dc922a.png)
 缺点
 
 - 前后端接口的约定：如果后端的接口一塌糊涂，如果后端的业务模型不够稳定，那么前端开发会很痛苦；不少团队也有类似尝试，通过接口规则、接口平台等方式来做。有了和后端一起沉淀的接口规则，还可以用来模拟数据，使得前后端可以在约定接口后实现高效并行开发。
@@ -274,7 +285,7 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
 - MVP(异步通信为主) ：Model、View、Presenter
 - MVVM(异步通信为主)：Model、View、View Model为了降低前端开发复杂度，涌现了大量的前端框架，比如：Angular JS、React、Vue.js、Ember JS等， 这些框架总的原则是先按类型分层， 比如Templates、Controllers、Models， 然后再在层内做切分，如下图：
 
-![a8f5b31e56947212e43f5f263820f6d6.png](a8f5b31e56947212e43f5f263820f6d6.png)
+![a8f5b31e56947212e43f5f263820f6d6.png](Vue学习笔记.assets/a8f5b31e56947212e43f5f263820f6d6.png)
 
 **优点**
 
@@ -292,7 +303,7 @@ WeUI是一套同微信原生视觉体验一致的基础样式库， 由微信官
 
 前端为主的MV*模式解决了很多很多问题， 但如上所述， 依旧存在不少不足之处。随着Node JS的兴起， JavaScript开始有能力运行在服务端。这意味着可以有一种新的研发模式：
 
-![2cc10d1766d761ef22b42a0a429ac244.png](2cc10d1766d761ef22b42a0a429ac244.png)
+![2cc10d1766d761ef22b42a0a429ac244.png](Vue学习笔记.assets/2cc10d1766d761ef22b42a0a429ac244.png)
 
 在这种研发模式下，前后端的职责很清晰。对前端来说，两个UI层各司其职：
 
@@ -357,13 +368,13 @@ npm install webpack@5.42.1 webpack-cli@4.7.2 -D
 
   例：npm i jquery -S
 
-  ![image-20220403123330033](image-20220403123330033.png)
+  ![image-20220403123330033](Vue学习笔记.assets/image-20220403123330033.png)
 
 - 仅开发需要用到的包，在命令行用 -D(--save -dev) 存到 package.json 中的 devDependencies 中使用
 
   例：npm i webpack@5.42.1 webpack-cli@4.7.2 -D
 
-  ![image-20220403123458534](image-20220403123458534.png)
+  ![image-20220403123458534](Vue学习笔记.assets/image-20220403123458534.png)
 
 ## 4.4、在项目中配置 webpack
 
@@ -390,7 +401,7 @@ module.exports = {
 
 ③ 在终端中运行 npm run dev 命令，启动 webpack 进行项目的打包构建
 
-![image-20220408165518297](image-20220408165518297-1650110942789.png)
+![image-20220408165518297](Vue学习笔记.assets/image-20220408165518297-1650110942789.png)
 
 此时在目录中生成了一个 dist 文件夹并生成了一个 main.js 的文件，main.js 文件 是根据 index.js 文件自动生成的，在 html 中导入新生成的 main.js 文件，就可以解决兼容性的问题
 
@@ -477,11 +488,11 @@ webpack-dev-server 可以让 webpack **监听项目源代码的变化**，从而
 
   ③ 在浏览器中访问 http://localhost:8080 地址，查看自动打包效果
 
-  ![image-20220403170352958](image-20220403170352958.png)
+  ![image-20220403170352958](Vue学习笔记.assets/image-20220403170352958.png)
 
 注意：webpack-dev-server 会启动一个实时打包的 http 服务器
 
-![image-20220403170154932](image-20220403170154932.png)
+![image-20220403170154932](Vue学习笔记.assets/image-20220403170154932.png)
 
 ### 4.8.2、打包生成的文件哪儿去了？
 
@@ -490,7 +501,7 @@ webpack-dev-server 可以让 webpack **监听项目源代码的变化**，从而
 - 严格遵守开发者在 webpack.config.js 中指定配置
 - 根据 output 节点指定路径进行存放
 
-![image-20220403170315245](image-20220403170315245.png)
+![image-20220403170315245](Vue学习笔记.assets/image-20220403170315245.png)
 
 ② **配置**了 webpack-dev-server 之后，打包生成的文件存放到了内存中
 
@@ -503,21 +514,21 @@ webpack-dev-server 生成到内存中的文件，默认放到了项目的根目�
 
 - 可以直接用 / 表示项目根目录，后面跟上要访问的文件名称，即可访问内存中的文件
 
-  ![image-20220403170352958](image-20220403170352958-1650111054221.png)
+  ![image-20220403170352958](Vue学习笔记.assets/image-20220403170352958-1650111054221.png)
 
 - 例如 /bundle.js 就表示要访问 webpack-dev-server 生成到内存中的 bundle.js 文件
 
   `webpack output is served from /` 表示生成的 bundle.js 在根目录
 
-  ![image-20220408173034797](image-20220408173034797.png)
+  ![image-20220408173034797](Vue学习笔记.assets/image-20220408173034797.png)
 
   根目录中没有 bundle.js 文件，此时的 bundle.js 文件在内存中
 
-  ![image-20220403170352958](image-20220403170352958-1650111068196.png)
+  ![image-20220403170352958](Vue学习笔记.assets/image-20220403170352958-1650111068196.png)
 
   可以访问内存中的 bundle.js 文件
 
-  ![image-20220403170420324](image-20220403170420324.png)
+  ![image-20220403170420324](Vue学习笔记.assets/image-20220403170420324.png)
 
   修改代码保存后会被 webpack-dev-server 插件监听到，此时插件会重新自动的打包在内存中生成新的 bundle.js 文件，生成新的文件后会自动刷新浏览器，节省重启服务器的时间
 
@@ -529,7 +540,7 @@ html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定
 
 需求：通过 html-webpack-plugin 插件，将 src 目录下的 index.html 首页，复制到项目根目录中一份！（默认访问 http://localhost:8080 地址时自动跳转到 index.html）
 
-![image-20220408172227874](image-20220408172227874.png)
+![image-20220408172227874](Vue学习笔记.assets/image-20220408172227874.png)
 
 - **安装 html-webpack-plugin**
 
@@ -570,11 +581,11 @@ html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定
 
 ① 通过 HTML 插件复制到项目根目录中的 index.html 页面，也被放到了内存中（访问根目录可直接访问到 index.html）
 
-![image-20220403175640386](image-20220403175640386.png)
+![image-20220403175640386](Vue学习笔记.assets/image-20220403175640386.png)
 
 ② HTML 插件在生成的 index.html 页面，自动注入了打包的 bundle.js 文件
 
-![image-20220403180659553](image-20220403180659553.png)
+![image-20220403180659553](Vue学习笔记.assets/image-20220403180659553.png)
 
 ### 4.8.6、devServer 节点
 
@@ -602,7 +613,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
 
   没有 loader 处理 css 文件时，导入 css 文件会报错：
 
-  ![image-20220408193948542](image-20220408193948542.png)
+  ![image-20220408193948542](Vue学习笔记.assets/image-20220408193948542.png)
 
 - less-loader 可以打包处理 .less 相关的文件
 
@@ -610,7 +621,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
 
 ### 4.9.2、loader 的调用过程
 
-![image-20220408192438293](image-20220408192438293.png)
+![image-20220408192438293](Vue学习笔记.assets/image-20220408192438293.png)
 
 ### 4.9.3、打包处理 css 文件
 
@@ -643,7 +654,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
 
 **loader 调用的过程**
 
-![01.loader调用的过程](01.loader调用的过程-1650111203254.png)
+![01.loader调用的过程](Vue学习笔记.assets/01.loader调用的过程-1650111203254.png)
 
 ### 4.9.4、打包处理 less 文件
 
@@ -722,7 +733,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
   console.log(logo)
   ```
 
-  ![image-20220409103819140](image-20220409103819140.png)
+  ![image-20220409103819140](Vue学习笔记.assets/image-20220409103819140.png)
 
   补充：base64 的图片优缺点
 
@@ -762,7 +773,7 @@ loader 加载器的作用：协助 webpack 打包处理特定的文件模块。�
 
 - webpack 加载处理 index.js 文件，会生成 bundle.js 文件，bundle.js 文件中包含打包好的样式、路径等模块
 
-  ![image-20220409111030385](image-20220409111030385.png)
+  ![image-20220409111030385](Vue学习笔记.assets/image-20220409111030385.png)
 
   webpack 把一个样式表加载过来之后，会把样式转换为类似于 js 文件运行
 
@@ -905,17 +916,17 @@ Source Map 就是一个信息文件，里面储存着位置信息。也就是说
 
 在开发环境下，webpack 默认启用了Source Map 功能。当程序运行出错时，可以直接在控制台提示错误行的位置，并定位到具体的源代码：
 
-![image-20220409144801655](image-20220409144801655.png)
+![image-20220409144801655](Vue学习笔记.assets/image-20220409144801655.png)
 
-![image-20220409144840046](image-20220409144840046.png)
+![image-20220409144840046](Vue学习笔记.assets/image-20220409144840046.png)
 
 - **默认 Source Map 的问题**
 
 - 开发环境下默认生成的Source Map，记录的是生成后的代码的位置。**会导致运行时报错的行数与源代码的行数不一致的问题**。示意图如下：
 
-  ![image-20220409145040678](image-20220409145040678.png)
+  ![image-20220409145040678](Vue学习笔记.assets/image-20220409145040678.png)
 
-  ![image-20220409145051408](image-20220409145051408.png)
+  ![image-20220409145051408](Vue学习笔记.assets/image-20220409145051408.png)
 
 - **解决默认Source Map的问题**
 
@@ -937,9 +948,9 @@ Source Map 就是一个信息文件，里面储存着位置信息。也就是说
 
 在生产环境下，如果省略了devtool 选项，则最终生成的文件中不包含Source Map。这能够防止原始代码通过Source Map 的形式暴露给别有所图之人。
 
-![image-20220409145512105](image-20220409145512105.png)
+![image-20220409145512105](Vue学习笔记.assets/image-20220409145512105.png)
 
-![image-20220409145536359](image-20220409145536359.png)
+![image-20220409145536359](Vue学习笔记.assets/image-20220409145536359.png)
 
 - **只定位行数不暴露源码**
 
@@ -947,17 +958,17 @@ Source Map 就是一个信息文件，里面储存着位置信息。也就是说
 
   nosources-source-map。实际效果如图所示：
 
-  ![image-20220409145859168](image-20220409145859168-1650111373682.png)
+  ![image-20220409145859168](Vue学习笔记.assets/image-20220409145859168-1650111373682.png)
 
-  ![image-20220409145918046](image-20220409145918046.png)
+  ![image-20220409145918046](Vue学习笔记.assets/image-20220409145918046.png)
 
 - **定位行数且暴露源码**
 
   在生产环境下，如果想在定位报错行数的同时，展示具体报错的源码。此时可以将devtool的值设置为source-map。实际效果如图所示：
 
-  ![image-20220409145959971](image-20220409145959971.png)
+  ![image-20220409145959971](Vue学习笔记.assets/image-20220409145959971.png)
 
-  ![image-20220409150016268](image-20220409150016268.png)
+  ![image-20220409150016268](Vue学习笔记.assets/image-20220409150016268.png)
 
   采用此选项后：你应该将你的服务器配置为，不允许普通用户访问source map 文件！
 
@@ -1018,7 +1029,7 @@ MVVM源自于经典的MVC（Model-View-Controller）模式。MVVM的核心是Vie
 - 该层向上与视图层进行双向数据绑定
 - 向下与Model层通过接口请求进行数据交互
 
-![ea7626bb43abc08096b6505b9997f46d.png](ea7626bb43abc08096b6505b9997f46d.png)
+![Vue学习笔记.assets/ea7626bb43abc08096b6505b9997f46d.png](ea7626bb43abc08096b6505b9997f46d.png)
 
 MVVM已经相当成熟了，主要运用但不仅仅在网络应用程序开发中。当下流行的MVVM框架有Vue.js，Anfular JS
 
@@ -1031,7 +1042,7 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 - **独立开发**：开发人员可以专注于业务逻辑和数据的开发（ViewMode），设计人员可以专注于页面设计。
 - **可测试**：界面素来是比较难以测试的，而现在测试可以针对ViewModel来写。
 
-![bdb1476dfc362f7b51ac829fb03fc99d.png](bdb1476dfc362f7b51ac829fb03fc99d.png)
+![Vue学习笔记.assets/bdb1476dfc362f7b51ac829fb03fc99d.png](bdb1476dfc362f7b51ac829fb03fc99d.png)
 **（1）View**
 
 View是视图层， 也就是用户界面。前端主要由HTH L和csS来构建， 为了更方便地展现vi eu to del或者Hodel层的数据， 已经产生了各种各样的前后端模板语言， 比如FreeMarker，Thyme leaf等等， 各大MV VM框架如Vue.js.Angular JS， EJS等也都有自己用来构建用户界面的内置模板语言。
@@ -1066,7 +1077,7 @@ vue 框架的特性，主要体现在如下两方面：
 
 在使用了 vue 的页面中，vue 会监听数据的变化，从而自动重新渲染页面的结构。示意图如下：
 
-![image-20220416204311407](image-20220416204311407.png)
+![Vue学习笔记.assets/image-20220416204311407](image-20220416204311407.png)
 
 好处：当页面数据发生变化时，页面会自动重新渲染！ 
 
@@ -1076,7 +1087,7 @@ vue 框架的特性，主要体现在如下两方面：
 
 在填写表单时，双向数据绑定可以辅助开发者在不操作 DOM 的前提下，自动把用户填写的内容同步到数据源 中。示意图如下：
 
-![image-20220416204408806](image-20220416204408806.png)
+![Vue学习笔记.assets/image-20220416204408806](image-20220416204408806.png)
 
 好处：开发者不再需要手动操作 DOM 元素，来获取表单元素最新的值！
 
@@ -1084,7 +1095,7 @@ vue 框架的特性，主要体现在如下两方面：
 
 MVVM 是 vue 实现数据驱动视图和双向数据绑定的核心原理。MVVM 指的是 Model、View 和 ViewModel， 它把每个 HTML 页面都拆分成了这三个部分，如图所示：
 
-<img src="image-20220416204536327.png" alt="image-20220416204536327" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/image-20220416204536327.png" alt="image-20220416204536327" style="zoom:50%;" />
 
 在 MVVM 概念中：
 
@@ -1098,7 +1109,7 @@ ViewModel 表示 vue 的实例，它是 MVVM 的核心。
 
 ViewModel 作为 MVVM 的核心，是它把当前页面的数据源（Model）和页面的结构（View）连接在了一起。
 
-<img src="image-20220416204704499.png" alt="image-20220416204704499" style="zoom:67%;" />
+<img src="Vue学习笔记.assets/image-20220416204704499.png" alt="image-20220416204704499" style="zoom:67%;" />
 
 当数据源发生变化时，会被 ViewModel 监听到，VM 会根据最新的数据源自动更新页面的结构 当表单元素的值发生变化时，也会被 VM 监听到，VM 会把变化过后最新的值自动同步到 Model 数据源中
 
@@ -1375,7 +1386,7 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
     ```
   - **测试结果：**
     
-    ![截图](ca13119b28aa5830975fea2e087ecd64.png)
+    ![截图](Vue学习笔记.assets/ca13119b28aa5830975fea2e087ecd64.png)
     
 
 
@@ -1476,7 +1487,7 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
     
     <img src="83aac3a3961e3be60bf2b3e9fba3169a.png" alt="截图" style="zoom:50%;" />
     
-    ![截图](f4cb9b91b6f2aefd2f13af60786670e5.png)
+    ![截图](Vue学习笔记.assets/f4cb9b91b6f2aefd2f13af60786670e5.png)
   - class样式数组绑定
     ```html
     <!DOCTYPE html>
@@ -1522,7 +1533,7 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
     ```
   - 测试结果
     
-    <img src="83aac3a3961e3be60bf2b3e9fba3169a.png" alt="83aac3a3961e3be60bf2b3e9fba3169a.png" style="zoom:50%;" />
+    <img src="Vue学习笔记.assets/83aac3a3961e3be60bf2b3e9fba3169a.png" alt="83aac3a3961e3be60bf2b3e9fba3169a.png" style="zoom:50%;" />
     
     ![f4cb9b91b6f2aefd2f13af60786670e5.png](f4cb9b91b6f2aefd2f13af60786670e5.png)
   - class样式对象绑定和数组绑定结合使用及简化操作
@@ -1588,9 +1599,9 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
     ```
   - **测试结果**
     
-    <img src="13461adb14b6445cb5c5b31ec0b06707.png" alt="截图" style="zoom:50%;" />
+    <img src="Vue学习笔记.assets/13461adb14b6445cb5c5b31ec0b06707.png" alt="截图" style="zoom:50%;" />
     
-    <img src="3c03a108abb6d187291af996bc841cd6.png" alt="截图" style="zoom:50%;" />
+    <img src="Vue学习笔记.assets/3c03a108abb6d187291af996bc841cd6.png" alt="截图" style="zoom:50%;" />
 
 - **style 样式处理**
   - 内联样式 style：
@@ -1645,9 +1656,9 @@ vue 中的指令按照不同的用途可以分为如下 6 大类：
   ```
   - 测试结果
     
-    <img src="a2b58d658fcc288df536fe1b7c7332f7.png" alt="截图" style="zoom:50%;" />
+    <img src="Vue学习笔记.assets/a2b58d658fcc288df536fe1b7c7332f7.png" alt="截图" style="zoom:50%;" />
     
-    <img src="aedcbf23ee44869011a0ec94224fd9b0.png" alt="截图" style="zoom:50%;" />
+    <img src="Vue学习笔记.assets/aedcbf23ee44869011a0ec94224fd9b0.png" alt="截图" style="zoom:50%;" />
   - 
 
 ## 5.2、条件渲染指令 分支结构
@@ -1782,9 +1793,9 @@ data:{
 </ul>
 ```
 
-![image-20220415182343881](image-20220415182343881.png)添加一个新的数据项，勾选的是 索引为 0 ，id = 3 的数据项（复选框勾选的数据项发生了改变）
+![image-20220415182343881](Vue学习笔记.assets/image-20220415182343881.png)添加一个新的数据项，勾选的是 索引为 0 ，id = 3 的数据项（复选框勾选的数据项发生了改变）
 
-![image-20220415182555710](image-20220415182555710.png)
+![image-20220415182555710](Vue学习笔记.assets/image-20220415182555710.png)
 
 总结：index（索引）不具有唯一性，id 具有唯一性
 
@@ -1803,7 +1814,7 @@ data:{
 
 ### 5.3.3、v-if 和 v-for
 
-<img src="15de62d6503768f55204dfea32e622b5.png" alt="截图" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/15de62d6503768f55204dfea32e622b5.png" alt="截图" style="zoom:50%;" />
 
 - **作用：**
   
@@ -1932,7 +1943,7 @@ data:{
 
 在事件处理函数中调用 event.preventDefault() 或 event.stopPropagation() 是非常常见的需求。因此， vue 提供了事件修饰符的概念，来辅助程序员更方便的对事件的触发进行控制。常用的 5 个事件修饰符如下：
 
-<img src="image-20220418153837426.png" alt="image-20220418153837426" style="zoom:67%;" />
+<img src="Vue学习笔记.assets/image-20220418153837426.png" alt="image-20220418153837426" style="zoom:67%;" />
 
 示例：
 
@@ -1992,7 +2003,7 @@ data:{
 
 为了方便对用户输入的内容进行处理，vue 为 v-model 指令提供了 3 个修饰符，分别是：
 
-![image-20220418154452719](image-20220418154452719.png)
+![Vue学习笔记.assets/image-20220418154452719](image-20220418154452719.png)
 
 ### 5.5.1、数据双向绑定
 
@@ -2042,7 +2053,7 @@ Vue.js是一个MV VM框架， 即数据双向绑定， 即当数据发生变化�
 
 测试结果：
 
-<img src="1282e9b03aed6d9ff0fd418da49afce3.png" alt="截图" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/1282e9b03aed6d9ff0fd418da49afce3.png" alt="截图" style="zoom:50%;" />
 
 ### 5.5.4、v-model的运用场景
 
@@ -2224,9 +2235,9 @@ Vue.js是一个MV VM框架， 即数据双向绑定， 即当数据发生变化�
 
 **测试结果**
 
-<img src="ba3764d5ab7d0432bccad2a2e02a5f1b.png" alt="截图" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/ba3764d5ab7d0432bccad2a2e02a5f1b.png" alt="截图" style="zoom:50%;" />
 
-<img src="51ca5ab39a5d03672e00bdcbcb537402.png" alt="截图" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/51ca5ab39a5d03672e00bdcbcb537402.png" alt="截图" style="zoom:50%;" />
 
 **（6）radio 单选按钮**
 
@@ -2399,7 +2410,7 @@ Vue.js是一个MV VM框架， 即数据双向绑定， 即当数据发生变化�
 
 **测试结果：**
 
-<img src="f7d6ad8f7b5f5d8b764a404a1e622cc6.png" alt="截图" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/f7d6ad8f7b5f5d8b764a404a1e622cc6.png" alt="截图" style="zoom:50%;" />
 
 注意：v-model表达式的初始值未能匹配任何选项，元系将被渲染为“未选中”状态。 在iOS中， 这会使用户无法选择第一个选项，因为这样的情况下，iOS不会触发change事件。因此，更推荐像上面这样提供一个值为空的禁用选项。
 
@@ -2479,7 +2490,7 @@ Vue.js是一个MV VM框架， 即数据双向绑定， 即当数据发生变化�
 
 **测试结果**
 
-<img src="ecb2ce5c11dd04903ce0df9750230f2b.png" alt="截图" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/ecb2ce5c11dd04903ce0df9750230f2b.png" alt="截图" style="zoom:50%;" />
 
 ### 5.5.6、总结
 
@@ -2529,7 +2540,7 @@ v-bind只能实现数据的单项绑定
 
 测试结果：
 
-<img src="1194c668b8368a83c24a69ca9989b9d8.png" alt="截图" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/1194c668b8368a83c24a69ca9989b9d8.png" alt="截图" style="zoom:50%;" />
 
 ### 6.1.1、自定义对象中的钩子函数及钩子函数参数
 
@@ -2600,7 +2611,7 @@ v-bind只能实现数据的单项绑定
 
 **测试结果：**
 
-<img src="a30168dd1afc24684d50647a56255fb6.png" alt="截图" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/a30168dd1afc24684d50647a56255fb6.png" alt="截图" style="zoom:50%;" />
 
 ## 6.3、自定义局部指令用法
 
@@ -2649,7 +2660,7 @@ v-bind只能实现数据的单项绑定
 
 测试结果：
 
-![image-20220320150949270](image-20220320150949270.png)
+![image-20220320150949270](Vue学习笔记.assets/image-20220320150949270.png)
 
 ## 6.4、自定义指令（新）
 
@@ -2752,7 +2763,7 @@ data(){
 
 点击按钮后，data 数据中的 color 值改变了，但没有调用自定义指令中的 bind() 函数，所以不会改变颜色
 
-![image-20220416193115578](image-20220416193115578.png)
+![image-20220416193115578](Vue学习笔记.assets/image-20220416193115578.png)
 
 
 
@@ -2781,7 +2792,7 @@ bind 函数只调用 1 次：当指令第一次绑定到元素时调用，当 DO
 
 测试结果：
 
-![image-20220416193348871](image-20220416193348871.png)
+![image-20220416193348871](Vue学习笔记.assets/image-20220416193348871.png)
 
 ### 6.4.8、函数简写
 
@@ -2835,8 +2846,8 @@ Vue.directive('color', function(el, binding) {
 ## 6.1、什么是组件
 
 组件是（对）可复用的`Vue`实例， 说白了就是一组可以重复使用的模板， 跟JSTL的自定义标签、`Thymeleal`的`th:fragment`等框架有着异曲同工之妙，通常一个应用会以一棵嵌套的组件树的形式来组织：
-![截图](d71e541352951ac7b0945b017bb56626.png)
-![截图](a1b2ae61d4be2084a99de6a1e823bebf.png)
+![截图](Vue学习笔记.assets/d71e541352951ac7b0945b017bb56626.png)
+![截图](Vue学习笔记.assets/a1b2ae61d4be2084a99de6a1e823bebf.png)
 
 例如，你可能会有页头、侧边栏、内容区等组件，每个组件又包含了其它的像导航链接、博文之类的组件。
 
@@ -3019,7 +3030,7 @@ Vue.directive('color', function(el, binding) {
 
 **注意： 局部组件只能在注册他的父组件中使用，在其子组件中不可用。否则会报相关错误。**
 
-![截图](0bfc9cf7d8b899a0798d5046dfc986aa.png)
+![截图](Vue学习笔记.assets/0bfc9cf7d8b899a0798d5046dfc986aa.png)
 
 ### 6.1.3、组件的自定义属性 props
 
@@ -3068,7 +3079,7 @@ vue 规定：组件中封装的自定义属性是只读的，**程序员不能�
    <button @click="init += 1">+1</button>
 ```
 
-![image-20220410144352271](image-20220410144352271.png)
+![image-20220410144352271](Vue学习笔记.assets/image-20220410144352271.png)
 
 要想修改 props 的值，可以把 props 的值转存到 data 中，因为 data 中的数据都是可读可写的！
 
@@ -3083,7 +3094,7 @@ vue 规定：组件中封装的自定义属性是只读的，**程序员不能�
 
 可通过this 获取 init 的值
 
-![image-20220410162431055](image-20220410162431055.png)
+![image-20220410162431055](Vue学习笔记.assets/image-20220410162431055.png)
 
 #### 6.1.3.2、props 的 default 默认值
 
@@ -3203,7 +3214,7 @@ export default{
 
 测试结果：
 
-![image-20220410155529901](image-20220410155529901.png)
+![image-20220410155529901](Vue学习笔记.assets/image-20220410155529901.png)
 
 #### 6.1.4.3、/deep/ 样式穿透
 
@@ -3223,11 +3234,11 @@ export default{
 
 不加 /deep/ 时
 
-![image-20220410161454284](image-20220410161454284.png)
+![image-20220410161454284](Vue学习笔记.assets/image-20220410161454284.png)
 
 加 /deep/ 时
 
-![image-20220410161334392](image-20220410161334392.png)
+![image-20220410161334392](Vue学习笔记.assets/image-20220410161334392.png)
 
 适用领域：
 
@@ -3300,7 +3311,7 @@ export default{
 
 **测试结果：**
 
-<img src="image-20220320150949270-1650111604293.png" alt="image-20220320150949270" style="zoom:50%;" />
+<img src="Vue学习笔记.assets/image-20220320150949270-1650111604293.png" alt="image-20220320150949270" style="zoom:50%;" />
 
 ****
 
@@ -3454,7 +3465,7 @@ props 属性名类型：
 
 测试结果：
 
-![image-20220320163709022](image-20220320163709022.png)
+![image-20220320163709022](Vue学习笔记.assets/image-20220320163709022.png)
 
 ### 6.1.5、自定义事件
 
@@ -3708,7 +3719,7 @@ export default{
 
   测试结果:
 
-  ![image-20220415204511234](image-20220415204511234.png)
+  ![image-20220415204511234](Vue学习笔记.assets/image-20220415204511234.png)
 
 
 
@@ -3753,7 +3764,7 @@ export default{
 
   测试结果：
 
-  ![image-20220415210955683](image-20220415210955683.png)
+  ![image-20220415210955683](Vue学习笔记.assets/image-20220415210955683.png)
 
 - 案例需求：控制文本框和按钮的按需切换并且让文本框自动获得焦点
 
@@ -3811,7 +3822,7 @@ export default{
 
   此时不能获取文本框的 DOM 元素，最新的值 `this.inputVisible = true` 还没有渲染到 DOM 页面，因此引出下面的方法。
 
-  ![image-20220416001745333](image-20220416001745333.png)
+  ![image-20220416001745333](Vue学习笔记.assets/image-20220416001745333.png)
 
 - **this.$nextTick(cb)方法**
 
@@ -3878,7 +3889,7 @@ export default{
 
 测试结果：
 
-![image-20220324195555900](image-20220324195555900.png)
+![image-20220324195555900](Vue学习笔记.assets/image-20220324195555900.png)
 
 ### 6.1.7、具名插槽用法
 
@@ -3944,7 +3955,7 @@ export default{
 
 测试结果：
 
-![image-20220320194502800](image-20220320194502800-1650111689025.png)
+![image-20220320194502800](Vue学习笔记.assets/image-20220320194502800-1650111689025.png)
 
 ### 6.1.8、作用域插槽
 
@@ -4014,7 +4025,7 @@ export default{
 
 测试结果：
 
-![image-20220320202749350](image-20220320202749350.png)
+![image-20220320202749350](Vue学习笔记.assets/image-20220320202749350.png)
 
 
 ### 6.1.9、动态组件
@@ -4068,7 +4079,7 @@ export default{
 
    默认情况下，切换动态组件时无法保持组件的状态（切换组件时，组件会被销毁）。
 
-   ![image-20220416113739537](image-20220416113739537.png)
+   ![image-20220416113739537](Vue学习笔记.assets/image-20220416113739537.png)
 
    此时可以使用 vue 内置的  组件保持动态组 件的状态。示例代码如下：
 
@@ -4082,7 +4093,7 @@ export default{
 
    此时的 Left 子组件被缓存起来了，Right 子组件是处于激活的状态
 
-   ![image-20220416113955660](image-20220416113955660.png)
+   ![image-20220416113955660](Vue学习笔记.assets/image-20220416113955660.png)
 
 4. **keep-alive 对应的生命周期函数**
 
@@ -4111,7 +4122,7 @@ export default{
 
    测试结果：
 
-   ![image-20220416115141893](image-20220416115141893.png)
+   ![image-20220416115141893](Vue学习笔记.assets/image-20220416115141893.png)
 
 5. **keep-active 的 include,exclude 属性**
 
@@ -4132,7 +4143,7 @@ export default{
 
    组件声明时候的 “name” 名称的主要应用场景：结合 `<keep-alive>` 标签实现组件缓存功能；以及在调试工具中看到组件的 name 名称
 
-   <img src="image-20220416121111432.png" alt="image-20220416121111432" style="zoom:50%;" />
+   <img src="Vue学习笔记.assets/image-20220416121111432.png" alt="image-20220416121111432" style="zoom:50%;" />
 
    ```js
    <script>
@@ -4162,7 +4173,7 @@ export default{
 
    插槽（Slot）是 vue 为组件的封装者提供的能力。允许开发者在封装组件时，把不确定的、希望由用户指定的部分定义为插槽。
 
-   ![image-20220416151049977](image-20220416151049977.png)
+   ![image-20220416151049977](Vue学习笔记.assets/image-20220416151049977.png)
 
    可以把插槽认为是组件封装期间，为用户预留的内容的占位符
 
@@ -4261,7 +4272,7 @@ export default{
 
    v-slot 指令必须定义在 `<tempalte>`元素上
 
-   ![image-20220416164421732](image-20220416164421732.png)
+   ![image-20220416164421732](Vue学习笔记.assets/image-20220416164421732.png)
 
    示例代码如下：
 
@@ -4288,7 +4299,7 @@ export default{
 
    测试结果：
 
-   ![image-20220416161054979](image-20220416161054979.png)
+   ![image-20220416161054979](Vue学习笔记.assets/image-20220416161054979.png)
 
 4. 作用域插槽
 
@@ -4339,7 +4350,7 @@ export default{
 
    测试结果：
 
-   ![image-20220416163258237](image-20220416163258237.png)
+   ![image-20220416163258237](Vue学习笔记.assets/image-20220416163258237.png)
 
    4.2. 解构插值 Prop
 
@@ -4360,7 +4371,7 @@ export default{
 
    测试结果：
 
-   ![image-20220416164045358](image-20220416164045358.png)
+   ![image-20220416164045358](Vue学习笔记.assets/image-20220416164045358.png)
 
 
 
@@ -4467,9 +4478,9 @@ h1 {
 
 注意：生命周期强调的是时间段，生命周期函数强调的是时间点。
 
-![lifecycle](lifecycle.png)
+![lifecycle](Vue学习笔记.assets/lifecycle.png)
 
-![image-20220410174743595](image-20220410174743595.png)
+![image-20220410174743595](Vue学习笔记.assets/image-20220410174743595.png)
 
 
 
@@ -4503,7 +4514,7 @@ export default {
 
 测试结果：
 
-![image-20220410180626975](image-20220410180626975.png)
+![image-20220410180626975](Vue学习笔记.assets/image-20220410180626975.png)
 
 ### 6.3.2、created() 生命周期函数
 
@@ -4555,7 +4566,7 @@ export default {
 
 测试结果：
 
-![image-20220411203207502](image-20220411203207502.png)
+![image-20220411203207502](Vue学习笔记.assets/image-20220411203207502.png)
 
 created 生命周期函数，非常常用。经常在它里面，调用 methods 中的方法，请求服务器的数据。并且，把请求到的数据，转存到 data 中（关键步骤），供 template 模板渲染的时候使用！
 
@@ -4616,11 +4627,11 @@ export default {
 
 将网速调慢。1. 先将空数组渲染到页面
 
-![image-20220411214524238](image-20220411214524238.png)
+![image-20220411214524238](Vue学习笔记.assets/image-20220411214524238.png)
 
 2. 在 Ajax 数据请求完成后，页面渲染出转储存 data 中的数据。
 
-![image-20220411215305584](image-20220411215305584.png)
+![image-20220411215305584](Vue学习笔记.assets/image-20220411215305584.png)
 
 ### 6.3.3、beforeMount() 生命周期函数
 
@@ -4644,7 +4655,7 @@ export default {
 
 此时还不能操作 DOM 元素
 
-![image-20220412082727602](image-20220412082727602.png)
+![image-20220412082727602](Vue学习笔记.assets/image-20220412082727602.png)
 
 ### 6.3.4、Mounted() 生命周期函数
 
@@ -4665,7 +4676,7 @@ export default {
 
 测试结果：
 
-![image-20220412084319698](image-20220412084319698.png)
+![image-20220412084319698](Vue学习笔记.assets/image-20220412084319698.png)
 
 **总结：在组件创建阶段的生命周期函数只执行一次。**
 
