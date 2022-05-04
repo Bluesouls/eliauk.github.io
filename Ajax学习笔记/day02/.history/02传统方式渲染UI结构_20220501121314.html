@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>传统方式渲染UI结构</title>
+  <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+  <div id="title"></div>
+  <div id="name"></div>
+  <div id="age"></div>
+  <div id="isVIP"></div>
+  <div id="date"></div>
+  <ul id="hobby">
+    <li></li>
+  </ul>
+  <script>
+    var data = {
+      title: '<h3>用户信息</h3>',
+      name: 'zs',
+      age: 20,
+      isVIP: true,
+      regTime: new Date(),
+      hobby: ['吃饭', '睡觉', '打豆豆']
+    }
+    $('#title').html(data.title)
+    $('#name').text(data.name)
+    $('#age').text(data.age)
+    $('#isVIP').val(data.isVIP)
+    $('#date').text(data.date)
+  </script>
+</body>
+
+</html>
