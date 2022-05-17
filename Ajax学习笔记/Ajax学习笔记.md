@@ -605,6 +605,217 @@ function myAjax(options) {
 }
 ```
 
+### 5.12、XMLHttpRequest Level2 的新特新
+
+**旧版 XMLHttpRequest 的缺点**
+
+① 只支持文本数据的传输，无法用来读取和上传文件
+
+② 传送和接收数据时，没有进度信息，只能提示有没有完成
+
+**XMLHttpRequest Level2 的新功能**
+
+① 可以设置 HTTP 请求的时限
+
+② 可以使用 FormData 对象管理表单数据
+
+③ 可以上传文件
+
+④ 可以获得数据传输的进度信息
+
+#### 5.12.1、设置 HTTP 请求时限
+
+有时，Ajax 操作很耗时，而且无法预知要花多少时间。如果网速很慢，用户可能要等很久。新版本的 XMLHttpRequest 对象，增加了 timeout 属性，可以设置 HTTP 请求的时限：
+
+```js
+// 将最长等待时间设为 3000 毫秒。过了这个时限，就自动停止HTTP请求。
+xhr.timeout = 3000
+```
+
+与之配套的还有一个 timeout 事件，用来指定回调函数：
+
+```js
+// 设置超时以后触发的 timeout 处理函数 
+xhr.ontimeout = function(event){
+     alert('请求超时！')
+ }
+```
+
+示例：
+
+```js
+  <script>
+    var xhr = new XMLHttpRequest()
+
+    // 设置 超时时间
+    xhr.timeout = 30
+    // 设置超时以后的处理函数
+    xhr.ontimeout = function () {
+      console.log('请求超时了！')
+    }
+
+    xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks')
+    xhr.send()
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText)
+      }
+    }
+  </script>
+```
+
+#### 5.12.2、FormData 对象管理表单数据
+
+Ajax 操作往往用来提交表单数据。为了方便表单处理，HTML5 新增了一个 FormData 对象，可以模拟表单操作：
+
+```js
+<script>
+    // 1. 创建 FormData 实例
+    var fd = new FormData()
+    // 2. 调用 append 函数，向 fd 中追加数据
+    fd.append('uname', 'zs')
+    fd.append('upwd', '123456')
+
+    var xhr = new XMLHttpRequest()
+    xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata')
+    xhr.send(fd)
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(JSON.parse(xhr.responseText))
+      }
+    }
+  </script>
+```
+
+测试结果：
+
+![image-20220505151432913](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202205051514894.png)
+
+FormData对象也可以用来获取网页表单的值，示例代码如下：
+
+```js
+  <script>
+    // 1. 通过 DOM 操作，获取到 form 表单元素
+    var form = document.querySelector('#form1')
+	 // 监听表单元素的 submit 事件
+    form.addEventListener('submit', function (e) {
+      // 阻止表单的默认提交行为
+      e.preventDefault()
+      // 根据 form 表单创建 FormData，快速获取到 form 表单中的数据并填充到 FormData 对象中
+      var fd = new FormData(form)
+      var xhr = new XMLHttpRequest()
+      xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata')
+      xhr.send(fd)
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(JSON.parse(xhr.responseText))
+        }
+      }
+    })
+  </script>
+```
+
+测试结果：
+
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Vue/202205051516293.png" alt="image-20220505151611266" style="zoom:67%;" />
+
+#### 5.12.3、上传文件
+
+新版 XMLHttpRequest 对象，不仅可以发送文本信息，还可以上传文件。
+
+实现步骤：
+
+① 定义 UI 结构
+
+② 验证是否选择了文件
+
+③ 向 FormData 中追加文件
+
+④ 使用 xhr 发起上传文件的请求
+
+⑤ 监听 onreadystatechange 事件
+
+```html
+<body>
+  <!-- ① 定义 UI 结构 -->
+  <!-- 1. 文件选择框 -->
+  <input type="file" id="file1" />
+  <!-- 2. 上传文件的按钮 -->
+  <button id="btnUpload">上传文件</button>
+  <br />
+  <!-- 3. img 标签，来显示上传成功以后的图片 -->
+  <img src="" alt="" id="img" width="800" />
+
+  <script>
+    // ② 验证是否选择了文件
+    // 1. 获取到文件上传按钮
+    var btnUpload = document.querySelector('#btnUpload')
+    // 2. 为按钮绑定单击事件处理函数
+    btnUpload.addEventListener('click', function () {
+      // 3. 获取到用户选择的文件列表
+      var files = document.querySelector('#file1').files
+      if (files.length <= 0) {
+        return alert('请选择要上传的文件！')
+      }
+        
+      // ③ 向 FormData 中追加文件
+      // 创建 FormData 对象
+      var fd = new FormData()
+      // 将用户选择的文件，添加到 FormData 中
+      fd.append('avatar', files[0])
+
+       // ④ 使用 xhr 发起上传文件的请求
+       // 1. 创建 xhr 对象
+      var xhr = new XMLHttpRequest()
+       // 2. 调用 open 函数，指定请求类型与URL地址。其中，请求类型必须为 POST
+      xhr.open('POST', 'http://www.liulongbin.top:3006/api/upload/avatar')
+       // 3. 发起请求
+      xhr.send(fd)
+
+      // ⑤ 监听 onreadystatechange 事件
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var data = JSON.parse(xhr.responseText)
+          if (data.status === 200) {
+            // 上传成功
+            // 将服务器返回的图片地址，设置为 <img> 标签的 src 属性
+            document.querySelector('#img').src = 'http://www.liulongbin.top:3006' + data.url
+          } else {
+            // 上传失败
+            console.log('图片上传失败！' + data.message)
+          }
+        }
+      }
+    })
+  </script>
+</body>
+```
+
+测试结果：
+
+<img src="https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Ajax/202205051535525.png" alt="image-20220505153541031" style="zoom:67%;" />
+
+#### 5.12.4、显示文件上传进度
+
+新版本的 XMLHttpRequest 对象中，可以通过监听 xhr.upload.onprogress 事件，来获取到文件的上传进度。语法格式如下：
+
+```js
+ // 创建 XHR 对象
+ var xhr = new XMLHttpRequest()
+ // 监听 xhr.upload 的 onprogress 事件
+ xhr.upload.onprogress = function(e) {
+    // e.lengthComputable 是一个布尔值，表示当前上传的资源是否具有可计算的长度
+    if (e.lengthComputable) {
+        // e.loaded 已传输的字节
+        // e.total  需传输的总字节
+        var percentComplete = Math.ceil((e.loaded / e.total) * 100)
+    }
+ }
+
+```
+
 
 
 ### 5.10、Ajax 的典型应用场景

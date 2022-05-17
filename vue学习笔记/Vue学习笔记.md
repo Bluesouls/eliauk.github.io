@@ -3681,7 +3681,7 @@ export default{
 
   每个 vue 的组件实例上，都包含一个 **$refs 对象**，里面存储着对应的 DOM 元素或组件的引用。默认情况下，**组件的 $refs 指向一个空对象**
 
-  ![image-20220415204013784](image-20220415204013784.png)
+  ![image-20220415204013784](https://cdn.jsdelivr.net/gh/godsaury/PicBed@master/NoteImg/Ajax/202205171354462.png)
 
 - 使用 ref 引用 DOM 元素
 
